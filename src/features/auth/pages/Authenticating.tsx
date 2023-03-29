@@ -1,31 +1,35 @@
-import { GetServerSidePropsContext } from "next";
-import { useEffect } from "react";
-import Head from "~/components/Head";
-import routes from "~/lib/routes";
-import { login } from "../api/login";
+import { GetServerSidePropsContext } from 'next'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
+import Head from '~/components/Head'
+import routes from '~/lib/routes'
+import { login } from '../api/login'
 
-type QueryParams = 
-  | { provider?: 'github', code?: string }
-  | { provider?: never, code?: never }
+type QueryParams =
+  | { provider?: 'github'; code?: string }
+  | { provider?: never; code?: never }
 
 export function getServerSideProps({ query = {} }: GetServerSidePropsContext) {
-  console.log({ query })
   const { provider, code } = query as QueryParams
   const shouldRedirectToLogin = !provider || !code
 
-  return shouldRedirectToLogin 
-    ? { redirect: { destination: routes.LOGIN, permanent: false } }
+  return shouldRedirectToLogin
+    ? { redirect: { destination: routes.login, permanent: false } }
     : { props: { provider, code } }
 }
 
 type Props = {
-  provider: 'github',
+  provider: 'github'
   code: string
 }
 
 export default function Authenticating({ code, provider }: Props) {
+  const router = useRouter()
+
   useEffect(() => {
-    login({ code, provider}).catch(console.warn)
+    login({ code, provider })
+      .then(() => router.push(routes.dashboard))
+      .catch(console.warn)
   }, [])
 
   return (
