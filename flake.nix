@@ -14,6 +14,7 @@
           buildInputs = with pkgs; [
             nodejs_latest
             nodePackages.typescript-language-server
+            nodePackages.prettier
           ];
         };
       });
