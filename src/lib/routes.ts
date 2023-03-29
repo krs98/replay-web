@@ -1,4 +1,7 @@
 export default {
-  login: '/auth/login',
   dashboard: '/dashboard',
+  login: '/login',
+  oauth: {
+    login: '/oauth/login',
+  },
 }

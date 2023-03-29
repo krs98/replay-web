@@ -1,2 +1,2 @@
 export { default as Login } from './pages/Login'
-export { default as Authenticating, getServerSideProps } from './pages/Authenticating'
+export { default as OAuth } from './pages/OAuth'
