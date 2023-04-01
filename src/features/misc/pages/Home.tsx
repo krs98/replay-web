@@ -50,7 +50,7 @@ export default function Home() {
               </h3>
             </div>
             <div className="max-w-md mb-14">
-              <p className="text-gray font-medium tracking-wider leading-8">
+              <p className="text-gray font-medium tracking-wide leading-8">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce egestas ex
                 a lacus efficitur sagittis. Proin nisl sapien, ultricies eu condimentum
                 in, consectetur ac turpis.
