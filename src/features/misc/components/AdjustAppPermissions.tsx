@@ -10,7 +10,7 @@ export default function AdjustAppPermissions() {
 
   return (
     <p className="text-white">
-      <span className="mr-1">Missing Git reporitory? </span>
+      <span className="mr-1 text-gray font-medium">Missing Git reporitory? </span>
       <span
         className="inline-flex items-center text-yellow font-bold cursor-pointer hover:underline"
         onClick={handleClickAdjustPermissions}
