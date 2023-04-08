@@ -9,7 +9,7 @@ export default async function New() {
           <div className="mb-20">
             <div className="mb-7">
               <h3 className="text-white text-5xl font-black tracking-wide leading-[48px]">
-                Let's show your work
+                Lets show your work
               </h3>
             </div>
             <p className="text-gray font-medium text-gray tracking-wide leading-8">
