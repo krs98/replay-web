@@ -1,6 +1,6 @@
 import AdjustAppPermissions from '../components/AdjustAppPermissions'
 
-export default function New() {
+export default async function New() {
   return (
     <div className="bg-black h-screen px-16">
       <div className="h-32"></div>

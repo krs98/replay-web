@@ -7,27 +7,26 @@ type LoginWithGithub = {
 }
 
 type LoginWithGithubResponse = {
-  success: true,
+  success: true
   data: {
     access_token: string
   }
 }
 
 export function loginWithGithub({ code }: LoginWithGithub) {
-  console.log(`${API_URL}/auth/login?provider=github`)
   return wretch(`${API_URL}/auth/login?provider=github`)
-    .headers({ accept: 'application/json'})
+    .headers({ accept: 'application/json' })
     .post({ code })
     .json<LoginWithGithubResponse>()
 }
 
 type Login = {
-  code: string,
+  code: string
   provider: 'github'
 }
 
 export function login({ code, provider }: Login) {
-  return match(provider) 
+  return match(provider)
     .with('github', () => loginWithGithub({ code }))
     .exhaustive()
 }

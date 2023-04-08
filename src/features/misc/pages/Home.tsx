@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import routes from '~/lib/routes'
+import LoginButton from '../components/LoginButton'
 
 export default function Home() {
   return (
@@ -20,23 +21,7 @@ export default function Home() {
                 Browse videos
               </Link>
             </span>
-            <button
-              className={`
-                group
-                border-2 border-yellow rounded-full bg-yellow
-                hover:bg-transparent 
-              `}
-            >
-              <Link
-                className={`
-                  text-black group-hover:text-yellow font-bold tracking-wide
-                  inline-block px-8 py-2 
-                `}
-                href={routes.login}
-              >
-                Log in
-              </Link>
-            </button>
+            <LoginButton />
           </div>
         </div>
       </header>

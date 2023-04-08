@@ -14,9 +14,10 @@
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
     "clsx": "^1.2.1",
+    "cookies": "^0.8.0",
     "eslint": "8.35.0",
     "eslint-config-next": "13.2.1",
-    "http-proxy-middleware": "^2.0.6",
+    "http-proxy": "^1.18.1",
     "neverthrow": "^6.0.0",
     "next": "13.2.1",
     "react": "18.2.0",
@@ -30,6 +31,7 @@
     "zod": "^3.20.6"
   },
   "devDependencies": {
+    "@types/http-proxy": "^1.17.10",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.2.7"
