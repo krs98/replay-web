@@ -1,9 +1,9 @@
-import wretch from 'wretch'
 import { PROXY_URL } from '~/config'
 
 export async function login({ code }: { code: string }) {
-  await wretch(`${PROXY_URL}/auth/login`)
-    .headers({ accept: 'application/json' })
-    .post({ code })
-    .res()
+  await fetch(`${PROXY_URL}/auth/login`, {
+    method: 'post',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({ code }),
+  })
 }
