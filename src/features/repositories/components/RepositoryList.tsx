@@ -1,9 +1,10 @@
 import Link from 'next/link'
+import { FiLock as Lock } from 'react-icons/fi'
 import getRepositories from '../api/getRepositories'
 
 export default async function RepositoryList() {
   const { data: repositories } = await getRepositories()
-
+  console.log(repositories)
   return (
     <ul className="border border-gray-2 rounded-lg">
       {repositories.map(repo => (
@@ -15,7 +16,7 @@ export default async function RepositoryList() {
           `}
         >
           <span className="text-white font-medium">
-            {repo.name}
+            {repo.name} {repo.private && <Lock className="-mt-0.5 text-gray inline" />}
             <span className="text-gray font-normal"> · 142d ago</span>
           </span>
 
