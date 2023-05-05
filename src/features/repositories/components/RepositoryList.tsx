@@ -31,7 +31,7 @@ export default async function RepositoryList() {
               className={`
                 text-black group-hover:text-white font-medium tracking-wide
               `}
-              href=""
+              href={`/new/import?repo=${repo.name}`}
             >
               Import
             </Link>

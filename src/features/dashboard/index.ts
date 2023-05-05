@@ -1,1 +1,1 @@
-export { default as DashboardVideos } from './pages/DashboardVideos'
+export { default as UploadButton } from './components/UploadButton'

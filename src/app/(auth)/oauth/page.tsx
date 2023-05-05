@@ -1,1 +1,10 @@
-export { OAuth as default } from '~/features/auth'
+import { Authenticate, Authenticating } from '~/features/auth'
+
+export default function OAuth() {
+  return (
+    <>
+      <Authenticate />
+      <Authenticating />
+    </>
+  )
+}

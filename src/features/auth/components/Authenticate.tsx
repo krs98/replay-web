@@ -14,9 +14,9 @@ const loginJustOnce = (() => {
     if (called)
       return new Promise((_, rej) => {
         console.warn(`
-        The 'login' function got called more than once. If this is not 
-        intended to happen, make sure you are running the correct environment.
-      `)
+          The 'login' function got called more than once. If this is not 
+          intended to happen, make sure you are running the correct environment.
+        `)
       })
 
     called = true

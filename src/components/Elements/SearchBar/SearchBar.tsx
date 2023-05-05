@@ -1,11 +1,12 @@
 import clsx from 'clsx'
 import { IoIosSearch } from 'react-icons/io'
+import Input from '../Input'
 
-type Props = {
+type SearchBarProps = {
   placeholder?: string
 }
 
-export default function SearchBar({ placeholder = 'Search...' }: Props) {
+export default function SearchBar({ placeholder = 'Search...' }: SearchBarProps) {
   return (
     <span
       className={clsx(
@@ -16,15 +17,7 @@ export default function SearchBar({ placeholder = 'Search...' }: Props) {
         'transition-colors duration-150 ease-in'
       )}
     >
-      <input
-        placeholder={placeholder}
-        className={`
-          w-full h-full bg-transparent border-none rounded-lg text-gray py-1.5
-          placeholder:text-gray-2
-          focus:outline-none
-          peer
-        `}
-      />
+      <Input placeholder={placeholder} className="peer" />
       <span className="fill-gray-2 peer-focus:fill-gray mr-3">
         <IoIosSearch className="transition-colors duration-150 ease-in fill-inherit text-2xl" />
       </span>
