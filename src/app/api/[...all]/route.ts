@@ -10,18 +10,19 @@ export async function GET(request: NextRequest) {
   request.headers.delete('transfer-encoding')
 
   const cookieStore = cookies()
-  console.log(request.cookies)
   const accessToken = cookieStore.get('access_token')?.value
-  console.log(accessToken)
   request.headers.append('Authorization', `Bearer ${accessToken}`)
 
   const url = replaceUrl(request.url)
-  console.log(url)
   return await fetch(url, request)
 }
 
 export async function POST(request: NextRequest) {
   request.headers.delete('transfer-encoding')
+
+  const cookieStore = cookies()
+  const accessToken = cookieStore.get('access_token')?.value
+  request.headers.append('Authorization', `Bearer ${accessToken}`)
 
   const url = replaceUrl(request.url)
   return await fetch(url, request)

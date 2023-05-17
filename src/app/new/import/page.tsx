@@ -1,14 +1,13 @@
 import Link from 'next/link'
-import { redirect, useSearchParams } from 'next/navigation'
 import { Suspense } from 'react'
-import { UploadVideoForm } from '~/features/misc'
+import { UploadVideoForm } from '~/features/videos'
 
 export default function Import() {
   return (
-    <div className="bg-black h-screen px-16">
+    <div className="bg-black px-16">
       <div className="h-32"></div>
-      <div className="flex">
-        <div className="shrink-0 grow">
+      <div className="flex flex-col">
+        <div className="shrink-0 grow mb-16">
           <div className="mb-8">
             <Link className="text-gray" href="/new">
               ← Back
@@ -23,9 +22,9 @@ export default function Import() {
             Fill the following information to upload the video.
           </p>
         </div>
-        <div className="basis-full pl-20">
-          <div className="bg-black-2 border border-gray-2 rounded-lg p-8">
-            <div className="border-b border-gray-2 pb-4 mb-8">
+        <div className="">
+          <div className="bg-black-2 border border-gray-2 rounded-lg p-8 mb-16">
+            <div className="border-b border-gray-2 pb-4 mb-12">
               <h3 className="text-white text-3xl font-black tracking-wide">
                 Video Information
               </h3>
