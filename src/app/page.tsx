@@ -15,7 +15,7 @@ export default function Home() {
           </div>
           <div className="ml-auto">
             <span className="inline-block mr-12">
-              <Link className="text-white font-bold p-2 hover:text-yellow" href="">
+              <Link className="text-white font-bold p-2 hover:text-yellow" href="/videos">
                 Browse videos
               </Link>
             </span>
