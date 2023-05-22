@@ -1,10 +1,12 @@
 import dayjs, { Dayjs } from 'dayjs'
 import duration from 'dayjs/plugin/duration'
 import { Video } from '../types'
+import Link from 'next/link'
+import routes from '~/lib/routes'
 
 dayjs.extend(duration)
 
-type VideoProps = {
+type VideoGridItemProps = {
   video: Video
 }
 
@@ -59,26 +61,28 @@ function timeSince(date: Dayjs) {
   return `${duration.seconds()} second ago`
 }
 
-export default function Video({ video }: VideoProps) {
+export default function VideoGridItem({ video }: VideoGridItemProps) {
   return (
     <div className="mx-4 mb-12">
-      <div className="w-96 h-48 bg-gray-2 rounded-lg mb-4"></div>
-      <div className="flex">
-        <div className="w-12 h-12 bg-gray-2 rounded-full mr-4"></div>
-        <div>
-          <div className="mb-1.5 text-white">
-            <h3 className="font-bold">{video.title}</h3>
-          </div>
-          <div className="text-gray">
-            <div className="">Unknown</div>
-            <div>
-              <span>1M views</span>
-              <span className="font-black mx-1.5"> · </span>
-              <span>{timeSince(dayjs(video.uploaded_at))}</span>
+      <Link href={routes.watch.video(video.id)}>
+        <div className="w-96 h-56 bg-gray-2 rounded-lg mb-4"></div>
+        <div className="flex">
+          <div className="w-12 h-12 bg-gray-2 rounded-full mr-4"></div>
+          <div>
+            <div className="mb-1.5 text-white">
+              <h3 className="font-bold">{video.title}</h3>
+            </div>
+            <div className="text-gray">
+              <div className="">Unknown</div>
+              <div>
+                <span>1M views</span>
+                <span className="font-black mx-1.5"> · </span>
+                <span>{timeSince(dayjs(video.uploaded_at))}</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </Link>
     </div>
   )
 }

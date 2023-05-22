@@ -4,7 +4,7 @@ import getRepositories from '../api/getRepositories'
 
 export default async function RepositoryList() {
   const { data: repositories } = await getRepositories()
-  console.log(repositories)
+
   return (
     <ul className="border border-gray-2 rounded-lg">
       {repositories.map(repo => (

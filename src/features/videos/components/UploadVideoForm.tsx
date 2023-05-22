@@ -8,6 +8,8 @@ import uploadVideo from '../api/uploadVideo'
 import { Button } from '~/components/Elements'
 import { InputField } from '~/components/Form'
 import { useState } from 'react'
+import routes from '~/lib/routes'
+import { useRouter } from 'next/navigation'
 
 const UploadVideoSchema = z.object({
   title: z
@@ -40,13 +42,15 @@ export default function UploadVideoForm() {
     resolver: zodResolver(UploadVideoSchema),
   })
 
-  const [loading, setLoading] = useState(false)
+  const router = useRouter()
 
+  const [loading, setLoading] = useState(false)
   const repo = useImportingRepo()
+
   async function onSubmit({ title, description }: UploadVideoSchema) {
     setLoading(true)
     await uploadVideo({ title, description, repo })
-    setLoading(false)
+    router.push(routes.dashboard)
   }
 
   return (

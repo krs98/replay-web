@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import { LoginButton } from '~/features/misc'
 import { getCursorPaginatedVideos } from '~/features/videos'
-import VideoList from '~/features/videos/components/VideoList'
+import VideoGrid from '~/features/videos/components/VideoGrid'
+import { SearchParams } from '~/types'
 
 const video = {
   id: 13971932,
@@ -10,6 +11,7 @@ const video = {
     username: 'Unknown',
   },
   description: undefined,
+  repo: 'test-video',
   uploaded_at: '2023-05-18T18:38:32.941676Z',
 }
 
@@ -25,10 +27,9 @@ const videos = [
   video,
   video,
   video,
-  video,
 ]
 
-export default async function Videos() {
+export default async function Browse({ searchParams }: { searchParams: SearchParams }) {
   const cursorPaginatedVideos = await getCursorPaginatedVideos({
     cursor: undefined,
     limit: 20,
@@ -36,14 +37,14 @@ export default async function Videos() {
 
   return (
     <div className="w-screen min-h-screen overflow-hidden bg-black">
-      <header className="w-full fixed z-10 px-16 py-8">
+      <header className="w-full fixed z-10 px-16 py-8 bg-black">
         <div className="flex">
           <div className="flex items-center">
             <span className="font-black text-2xl text-yellow">Replay</span>
           </div>
           <div className="ml-auto">
             <span className="inline-block mr-12">
-              <Link className="text-white font-bold p-2 hover:text-yellow" href="/videos">
+              <Link className="text-white font-bold p-2 hover:text-yellow" href="/browse">
                 Browse videos
               </Link>
             </span>
@@ -53,7 +54,7 @@ export default async function Videos() {
       </header>
 
       <div className="mt-44 px-16">
-        <VideoList videos={videos} />
+        <VideoGrid videos={videos} />
       </div>
     </div>
   )

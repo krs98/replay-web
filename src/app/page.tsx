@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { LoginButton } from '~/features/misc'
+import routes from '~/lib/routes'
 
 export const metadata = {
   title: 'Home - Replay',
@@ -11,11 +12,13 @@ export default function Home() {
       <header className="max-w-full w-full fixed z-10 px-16 py-8">
         <div className="flex">
           <div className="flex items-center">
-            <span className="font-black text-2xl text-yellow">Replay</span>
+            <Link className="font-black text-2xl text-yellow" href={routes.landing}>
+              Replay
+            </Link>
           </div>
           <div className="ml-auto">
             <span className="inline-block mr-12">
-              <Link className="text-white font-bold p-2 hover:text-yellow" href="/videos">
+              <Link className="text-white font-bold p-2 hover:text-yellow" href="/browse">
                 Browse videos
               </Link>
             </span>

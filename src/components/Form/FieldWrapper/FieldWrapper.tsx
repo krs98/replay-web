@@ -20,7 +20,6 @@ export default function FieldWrapper({
   error,
   required,
 }: FieldWrapperProps) {
-  console.log({ required })
   return (
     <div className={className}>
       <label className="block text-gray mb-4 font-medium">
